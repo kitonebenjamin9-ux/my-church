@@ -1,0 +1,15 @@
+HEALING TABERNACLE FIREBASE SETUP
+
+1. Open a terminal in this website root.
+2. Run: firebase login
+3. Run: firebase use healing-tabernacle-centre-nabw
+4. Run: firebase deploy --only firestore:rules,storage,functions,hosting
+5. In Firebase Authentication, enable the sign-in methods used by your members/admins.
+6. In Firebase Console > Storage, confirm the media/audio and media/pdfs paths after the first upload.
+7. In Admin Dashboard > Media Library, upload your real MP3/M4A/WAV files and PDFs.
+8. The scheduled function creates today's daily Bible verse at 05:15 Africa/Kampala.
+9. The Daily Word page also calls the dailyVerse function if today's Firestore document is missing.
+10. Bible reading appearance is saved per visitor: size, font, line spacing and light/sepia/dark theme.
+
+IMPORTANT:
+The browser cannot deploy Firebase by itself. Deployment must be done from an authenticated Firebase CLI environment. Scheduled Cloud Functions may require the Google Cloud billing plan that supports Cloud Scheduler.

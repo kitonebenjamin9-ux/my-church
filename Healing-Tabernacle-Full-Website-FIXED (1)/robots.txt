@@ -1,0 +1,10 @@
+# CHANGE DOMAIN HERE once the site is deployed to its real domain
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /register.html
+
+Sitemap: https://www.healingtabernacle.org/sitemap.xml
+Disallow: /admin-login.html

@@ -1,0 +1,148 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Admin Dashboard - Healing Tabernacle</title><link rel="icon" href="assets/logo/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"><style>
+.admin-header {
+  background: linear-gradient(135deg, #4B0082, #260041);
+  color: white;
+  padding: 70px 20px;
+}
+
+.admin-header h1 {
+  margin-bottom: 10px;
+}
+
+.admin-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.admin-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.08);
+}
+
+.admin-card h2 {
+  color: #4B0082;
+  margin-top: 0;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.admin-actions input,
+.admin-actions select {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.request-card {
+  border: 1px solid #eee;
+  border-left: 5px solid #4B0082;
+  padding: 18px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.request-card.pending {
+  border-left-color: #D4AF37;
+}
+
+.request-card.handled {
+  border-left-color: #198754;
+}
+
+.request-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.request-actions button {
+  border: none;
+  padding: 9px 14px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.btn-handle {
+  background: #198754;
+  color: white;
+}
+
+.btn-delete {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-logout {
+  background: #D4AF37;
+  color: #000;
+}
+
+.status {
+  font-weight: 700;
+}
+
+.status.pending {
+  color: #b8860b;
+}
+
+.status.handled {
+  color: #198754;
+}
+
+#adminMessage {
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+</style></head><body><a class="skip-link" href="#main-content">Skip to main content</a><div id="site-header"></div><section class="admin-header">
+  <div class="container">
+    <span class="eyebrow">Healing Tabernacle Ministries</span>
+    <h1>Admin Dashboard</h1>
+    <p id="adminInfo">Checking administrator access...</p>
+  </div>
+</section><main class="admin-container">
+  <div id="adminMessage"></div>
+  <div class="admin-card">
+    <h2>Secure Messages &amp; Ministry Records</h2>
+    <p>Contact messages, prayer requests, registrations, members, testimonies and other ministry records are kept behind a second password check.</p>
+    <div class="admin-actions">
+      <a class="btn btn-primary" href="admin-secure.html">🔐 Open Secure Messages &amp; Records</a>
+    </div>
+    <p class="form-note">You will enter the password for your current Firebase administrator account. The password is used only to re-authenticate you and is never stored by the website.</p>
+  </div>
+
+  <div class="admin-card">
+    <h2>Website Management</h2>
+    <div class="admin-actions">
+      <a href="admin-settings.html" class="btn btn-primary">⚙️ Website Settings</a>
+      <a href="admin-media.html" class="btn btn-primary">🎧 Media Library</a>
+      <a href="admin-updates.html" class="btn btn-outline on-light">📢 Website Updates</a>
+    </div>
+    <p>Website settings, website updates and media library remain in their normal admin modules and are not placed behind the secure records password.</p>
+  </div>
+
+  <div class="admin-card">
+    <h2>Content Management</h2>
+    <div class="admin-actions">
+      <a class="btn btn-primary" href="admin-platform.html">🗂️ Open Content Manager</a>
+    </div>
+    <p>Manage public-facing church content such as branches, ministries, events, sermons, leaders, gallery records and the church project.</p>
+  </div>
+
+  <button id="logout" class="btn btn-logout">Logout</button>
+</main><div id="site-footer"></div><script src="js/config.js"></script><script src="js/main.js"></script><script type="module" src="js/firebase.js"></script><script type="module" src="js/admin.js?v=20260911-0935"></script><script type="module" src="js/htm-platform.js"></script>
+</body>
+</html>

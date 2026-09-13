@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Secure Records | Healing Tabernacle Ministries</title>
+<link rel="icon" href="assets/logo/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<main class="secure-records-wrap" id="main-content">
+  <section class="secure-gate" id="secure-gate">
+    <div class="secure-gate-card">
+      <div class="secure-lock">🔐</div>
+      <span class="eyebrow">Restricted Administrator Area</span>
+      <h1>Messages &amp; Ministry Records</h1>
+      <p>Enter your <strong>Firebase administrator password</strong> to open contact messages, prayer requests, registrations, members and other ministry records.</p>
+      <form id="unlock-form" class="cms-form" autocomplete="current-password">
+        <label>Password
+          <input id="unlock-password" type="password" required autocomplete="current-password" placeholder="Enter your admin password">
+        </label>
+        <button class="htm-btn secure-unlock-btn" type="submit">Unlock Secure Records</button>
+      </form>
+      <div id="unlock-message" class="secure-message" aria-live="polite"></div>
+      <p class="secure-note">Your password is used only to re-authenticate this Firebase account. It is never stored on this page.</p>
+      <a class="card-link" href="admin.html">← Back to Admin Dashboard</a>
+    </div>
+  </section>
+
+  <section class="secure-app" id="secure-app" hidden>
+    <header class="secure-topbar">
+      <div>
+        <span class="eyebrow">Healing Tabernacle Ministries</span>
+        <h1>Secure Messages &amp; Ministry Records</h1>
+        <p id="secure-user" class="secure-subtitle"></p>
+      </div>
+      <div class="secure-top-actions">
+        <button id="lock-button" class="admin-btn secondary" type="button">🔒 Lock</button>
+        <a href="admin.html" class="admin-btn secondary">← Dashboard</a>
+      </div>
+    </header>
+
+    <div id="secure-stats" class="secure-stats"></div>
+    <div id="secure-tabs" class="secure-tabs" role="tablist"></div>
+    <section id="secure-panel" class="admin-panel secure-panel" aria-live="polite"></section>
+  </section>
+</main>
+<script type="module" src="js/admin-secure.js?v=20260911-1100"></script>
+</body>
+</html>

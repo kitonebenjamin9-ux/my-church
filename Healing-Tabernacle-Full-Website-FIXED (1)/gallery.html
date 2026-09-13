@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | Healing Tabernacle</title>
+<meta name="description" content="Browse photos from Healing Tabernacle services, events and community life.">
+<link rel="icon" href="assets/logo/favicon.png">
+<!-- CHANGE FONTS HERE -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Moments</span>
+    <h1>Photo Gallery</h1>
+    <p>A look back at worship, fellowship and outreach at Healing Tabernacle.</p>
+  </div>
+</section>
+
+<!-- ============================= FEATURED PHOTO ============================= -->
+<section class="section" style="padding-bottom:0;">
+  <div class="container leader-section reveal">
+    <div>
+      <!--
+        CHANGE THIS PHOTO HERE — assets/images/gallery-featured-member.jpg
+        This is the featured/highlighted photo slot on the gallery page
+        (for example, the congregant photo you wanted featured here).
+        Simply replace the file at that path with your own image, keeping
+        the same file name — or update the "src" below to a new file name.
+      -->
+      <div class="arch-frame">
+        <img loading="lazy" src="assets/images/gallery-featured-member.jpg" alt="Featured photo from Healing Tabernacle">
+      </div>
+    </div>
+    <div>
+      <span class="eyebrow">Featured</span>
+      <h2>Every Face Has A Story</h2>
+      <p>Behind every photo in our gallery is a testimony — of healing, of new beginnings, of a family finding home at Healing Tabernacle. This is a community built one life at a time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= GALLERY GRID ============================= -->
+<section class="section">
+  <div class="container">
+    <div class="gallery-filters reveal">
+      <button data-filter="all" class="active">All</button>
+      <button data-filter="services">Services</button>
+      <button data-filter="worship">Worship</button>
+      <button data-filter="congregation">Congregation</button>
+      <button data-filter="youth">Youth</button>
+      <button data-filter="children">Children</button>
+      <button data-filter="outreach">Outreach</button>
+      <button data-filter="conferences">Conferences</button>
+      <button data-filter="pastors">Pastors</button>
+      <button data-filter="special">Special Events</button>
+    </div>
+
+    <!--
+      NOTE: Each image below controls its own path AND category.
+      To add more photos, copy one .gallery-item block, change the image
+      path, alt text, tag label, and data-category value.
+    -->
+    <div class="gallery-grid reveal">
+      <div class="gallery-item" data-category="worship">
+        <!-- CHANGE IMAGE HERE — assets/images/gallery-1.jpg -->
+        <img loading="lazy" src="assets/images/gallery-1.jpg" alt="Sunday worship service">
+        <span class="tag">Worship</span>
+      </div>
+      <div class="gallery-item" data-category="congregation">
+        <!-- CHANGE IMAGE HERE — assets/images/gallery-2.jpg -->
+        <img loading="lazy" src="assets/images/gallery-2.jpg" alt="Congregation in prayer">
+        <span class="tag">Congregation</span>
+      </div>
+      <div class="gallery-item" data-category="worship">
+        <!-- CHANGE IMAGE HERE — assets/images/gallery-3.jpg -->
+        <img loading="lazy" src="assets/images/gallery-3.jpg" alt="Church choir singing">
+        <span class="tag">Worship</span>
+      </div>
+      <div class="gallery-item" data-category="services">
+        <!-- CHANGE IMAGE HERE — assets/images/gallery-4.jpg -->
+        <img loading="lazy" src="assets/images/gallery-4.jpg" alt="Baptism service">
+        <span class="tag">Services</span>
+      </div>
+      <div class="gallery-item" data-category="youth">
+        <!-- CHANGE IMAGE HERE — assets/images/gallery-5.jpg -->
+        <img loading="lazy" src="assets/images/gallery-5.jpg" alt="Youth service">
+        <span class="tag">Youth</span>
+      </div>
+      <div class="gallery-item" data-category="outreach">
+        <!-- CHANGE IMAGE HERE — assets/images/gallery-6.jpg -->
+        <img loading="lazy" src="assets/images/gallery-6.jpg" alt="Community outreach event">
+        <span class="tag">Outreach</span>
+      </div>
+      <div class="gallery-item" data-category="children">
+        <!-- CHANGE IMAGE HERE — assets/images/gallery-7.jpg -->
+        <img loading="lazy" src="assets/images/gallery-7.jpg" alt="Children's ministry gathering">
+        <span class="tag">Children</span>
+      </div>
+      <div class="gallery-item" data-category="pastors">
+        <!-- CHANGE IMAGE HERE — assets/images/gallery-featured-member.jpg -->
+        <img loading="lazy" src="assets/images/gallery-featured-member.jpg" alt="Church member portrait">
+        <span class="tag">Pastors</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script type="module" src="js/htm-platform.js"></script>
+</body>
+</html>

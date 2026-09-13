@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join The Church Family | Healing Tabernacle</title>
+<meta name="description" content="Become part of the Healing Tabernacle family — register your details, pick a ministry, or request a visit or counselling.">
+<link rel="icon" href="assets/logo/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Get Connected</span>
+    <h1>Join The Church Family</h1>
+    <p>Tell us a bit about yourself and how we can walk with you.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:640px;">
+    <div class="card">
+      <div class="card-body" style="padding:36px 32px;">
+
+        <form id="join-form" novalidate>
+          <input type="text" name="website" id="hp-field" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
+          <div class="form-group">
+            <label for="join-name">Full Name</label>
+            <input type="text" id="join-name" required>
+          </div>
+          <div class="form-group">
+            <label for="join-phone">Phone Number</label>
+            <input type="tel" id="join-phone" required>
+          </div>
+          <div class="form-group">
+            <label for="join-email">Email Address</label>
+            <input type="email" id="join-email">
+          </div>
+
+          <div class="form-group">
+            <label>Ministries You're Interested In</label>
+            <div style="display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:8px;">
+              <label style="display:flex;align-items:center;gap:6px;font-weight:400;"><input type="checkbox" name="ministry" value="Children"> Children</label>
+              <label style="display:flex;align-items:center;gap:6px;font-weight:400;"><input type="checkbox" name="ministry" value="Youth"> Youth</label>
+              <label style="display:flex;align-items:center;gap:6px;font-weight:400;"><input type="checkbox" name="ministry" value="Worship"> Worship &amp; Creative Arts</label>
+              <label style="display:flex;align-items:center;gap:6px;font-weight:400;"><input type="checkbox" name="ministry" value="Outreach"> Outreach &amp; Missions</label>
+              <label style="display:flex;align-items:center;gap:6px;font-weight:400;"><input type="checkbox" name="ministry" value="Men"> Men's Fellowship</label>
+              <label style="display:flex;align-items:center;gap:6px;font-weight:400;"><input type="checkbox" name="ministry" value="Women"> Women's Fellowship</label>
+              <label style="display:flex;align-items:center;gap:6px;font-weight:400;"><input type="checkbox" name="ministry" value="Prayer"> Prayer &amp; Deliverance</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label style="display:flex;align-items:center;gap:8px;font-weight:400;">
+              <input type="checkbox" id="join-visit"> I'd like to request a church visit
+            </label>
+            <label style="display:flex;align-items:center;gap:8px;font-weight:400;margin-top:8px;">
+              <input type="checkbox" id="join-counselling"> I'd like to request counselling
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label for="join-message">Anything else you'd like us to know? (optional)</label>
+            <textarea id="join-message" rows="4"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Submit</button>
+        </form>
+
+        <p id="join-alert" class="form-note" style="text-align:center;margin-top:18px;"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script>
+/* Front-end demo only — no backend attached yet.
+   To go live, replace the setTimeout block below with a real submission
+   (e.g. a fetch() call to your backend, or a Firestore addDoc() call the
+   same way js/prayer.js does, if you'd like this tied to the same
+   Firebase project). */
+document.addEventListener("DOMContentLoaded", function () {
+  var form = document.getElementById("join-form");
+  var alertBox = document.getElementById("join-alert");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var honeypot = document.getElementById("hp-field");
+    if (honeypot && honeypot.value) { form.reset(); return; }
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    var btn = form.querySelector("button[type=submit]");
+    btn.disabled = true;
+    btn.textContent = "Submitting...";
+    setTimeout(function () {
+      alertBox.textContent = "Thank you! Someone from our team will reach out to you soon.";
+      alertBox.className = "form-note";
+      alertBox.style.color = "var(--color-success)";
+      form.reset();
+      btn.disabled = false;
+      btn.textContent = "Submit";
+    }, 900);
+  });
+});
+</script>
+<script type="module" src="js/htm-platform.js"></script>
+</body>
+</html>

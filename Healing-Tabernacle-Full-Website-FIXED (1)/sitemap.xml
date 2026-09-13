@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- CHANGE DOMAIN HERE (all <loc> below) once the site is deployed to its real domain -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.healingtabernacle.org/index.html</loc><lastmod>2026-08-09</lastmod><priority>1.0</priority></url>
+  <url><loc>https://www.healingtabernacle.org/about.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/pastors.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/visit.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/events.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/sermons.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/gallery.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/ministries.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/children.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/youth.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/worship.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/outreach.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/men.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/women.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/testimonies.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/give.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/giving-mtn.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/giving-airtel.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/giving-bank.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/livestream.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/daily-word.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/join.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/prayer.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/faq.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/contact.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.healingtabernacle.org/notifications.html</loc><lastmod>2026-08-09</lastmod><priority>0.6</priority></url>
+<url><loc>https://healingtabernacle.org/search.html</loc></url><url><loc>https://healingtabernacle.org/privacy.html</loc></url><url><loc>https://healingtabernacle.org/terms.html</loc></url><url><loc>https://healingtabernacle.org/cookies.html</loc></url><url><loc>https://healingtabernacle.org/safeguarding.html</loc></url><url><loc>https://healingtabernacle.org/copyright.html</loc></url><url><loc>https://healingtabernacle.org/offline.html</loc></url></urlset>

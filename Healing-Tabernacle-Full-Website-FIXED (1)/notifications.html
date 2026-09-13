@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notifications | Healing Tabernacle</title>
+<meta name="description" content="Stay notified about services, livestreams, sermons, conferences and announcements from Healing Tabernacle.">
+<link rel="icon" href="assets/logo/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Stay In The Loop</span>
+    <h1>Notifications</h1>
+    <p>Get notified about services, livestreams, new sermons, conferences and announcements.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:640px;">
+    <div class="card reveal">
+      <div class="card-body" style="padding:32px 28px;">
+        <h3>WhatsApp Updates</h3>
+        <p style="margin:10px 0 18px;">The fastest way to stay updated today — message us on WhatsApp and we'll add you to our broadcast list.</p>
+        <a href="#" id="notify-whatsapp" target="_blank" rel="noopener" class="btn btn-primary">💬 Get WhatsApp Updates</a>
+      </div>
+    </div>
+
+    <div class="card reveal" style="margin-top:20px;">
+      <div class="card-body" style="padding:32px 28px;">
+        <h3>Browser Push Notifications</h3>
+        <!-- HONEST NOTE: real push notifications need a backend (a push
+             service + service worker registered to a server that can send
+             messages) which this static front-end project doesn't have
+             yet. This section is prepared so it's easy to wire up later. -->
+        <p style="margin:10px 0 18px;">
+          Coming soon. Push notifications need a small backend service to actually
+          deliver alerts to your device — this page is ready to connect to
+          one (e.g. Firebase Cloud Messaging, which pairs well with this
+          site's existing Firebase login system) whenever you're ready to add it.
+        </p>
+        <button class="btn btn-outline on-light" disabled style="opacity:0.6;cursor:not-allowed;">Push Notifications Require Firebase Cloud Messaging</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var link = document.getElementById("notify-whatsapp");
+  if (link && CONFIG.contact && CONFIG.contact.whatsapp) {
+    link.href = "https://wa.me/" + CONFIG.contact.whatsapp + "?text=" + encodeURIComponent("Hi, please add me to Healing Tabernacle's WhatsApp updates.");
+  }
+});
+</script>
+<script type="module" src="js/htm-platform.js"></script>
+</body>
+</html>

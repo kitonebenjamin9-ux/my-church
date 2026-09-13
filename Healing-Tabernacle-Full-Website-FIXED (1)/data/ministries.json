@@ -1,0 +1,8 @@
+[
+  { "id": "children", "name": "Children's Ministry", "ages": "2 - 12", "meets": "Every Sunday, during the 10:30 AM service", "page": "children.html" },
+  { "id": "youth", "name": "Youth Ministry", "ages": "13 - 24", "meets": "Every Saturday, 4:00 PM", "page": "youth.html" },
+  { "id": "worship", "name": "Worship & Creative Arts", "ages": "All Ages", "meets": "Rehearsals every Thursday, 6:00 PM", "page": "worship.html" },
+  { "id": "outreach", "name": "Outreach & Missions", "ages": "Volunteer-Led", "meets": "Monthly community outreach — see events.html", "page": "outreach.html" },
+  { "id": "men", "name": "Men's Fellowship", "ages": "Adult Men", "meets": "First Saturday of the month, 9:00 AM", "page": "men.html" },
+  { "id": "women", "name": "Women's Fellowship", "ages": "Adult Women", "meets": "Second Saturday of the month, 9:00 AM", "page": "women.html" }
+]

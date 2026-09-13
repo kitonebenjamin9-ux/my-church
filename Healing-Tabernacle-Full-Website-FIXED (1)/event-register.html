@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register for an Event - Healing Tabernacle Church</title>
+<link rel="icon" href="assets/logo/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!--
+  STANDALONE PAGE — does not modify events.html in any way.
+  The event list below is maintained separately in js/event-register.js
+  (EVENTS array) so it mirrors what's on events.html without editing that
+  file. If you add/change events on events.html, update the same EVENTS
+  array in js/event-register.js to keep this list in sync.
+-->
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Save Your Seat</span>
+    <h1>Event Registration</h1>
+    <p>Pick an event below and reserve your spot — it takes less than a minute.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:560px;">
+
+    <div class="card" id="registerCardWrap">
+      <div class="card-body" style="padding:36px 32px;">
+
+        <div id="formAlert" class="form-alert"></div>
+
+        <form id="registerForm" novalidate>
+          <div class="form-group">
+            <label for="regEvent">Select Event</label>
+            <select id="regEvent" required></select>
+          </div>
+          <div class="form-group">
+            <label for="regName">Full Name</label>
+            <input type="text" id="regName" required>
+          </div>
+          <div class="form-group">
+            <label for="regEmail">Email Address</label>
+            <input type="email" id="regEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="regPhone">Phone Number</label>
+            <input type="tel" id="regPhone" placeholder="e.g. +234 803 000 0000">
+          </div>
+          <div class="form-group">
+            <label for="regGuests">Number Attending (including you)</label>
+            <input type="number" id="regGuests" min="1" max="20" value="1" required>
+          </div>
+          <div class="form-group">
+            <label for="regNotes">Notes (optional)</label>
+            <textarea id="regNotes" rows="3" placeholder="Any special requests, e.g. child care, accessibility..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Confirm Registration</button>
+        </form>
+
+      </div>
+    </div>
+
+    <div class="card" id="confirmationCard" style="display:none;">
+      <div class="card-body text-center" style="padding:40px 32px;">
+        <h2 style="color:var(--color-success, #3F7D58);">You're Registered! 🎉</h2>
+        <p id="confirmSummary" class="form-note"></p>
+        <p style="margin:18px 0;"><strong>Confirmation Code:</strong> <span id="confirmCode"></span></p>
+        <img loading="lazy" id="confirmQr" alt="Registration QR code" style="width:160px;height:160px;margin:0 auto 18px;display:block;">
+        <p class="form-note">Show this code (or QR) at check-in. If you were signed in, it's also saved to <a href="dashboard.html">your dashboard</a>.</p>
+        <a href="events.html" class="btn btn-outline on-light btn-sm" style="margin-top:14px;">Back to Events</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script type="module" src="js/firebase.js"></script>
+<script type="module" src="js/event-register.js"></script>
+
+<script type="module" src="js/htm-platform.js"></script>
+</body>
+</html>

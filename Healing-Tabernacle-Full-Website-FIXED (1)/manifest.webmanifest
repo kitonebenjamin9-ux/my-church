@@ -1,0 +1,14 @@
+{
+  "name": "Healing Tabernacle Ministries",
+  "short_name": "Healing Tabernacle",
+  "description": "Healing Tabernacle Ministries — worship, the Word, prayer, community and resources.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4b0082",
+  "icons": [
+    {"src":"assets/logo/favicon.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"assets/logo/favicon.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}

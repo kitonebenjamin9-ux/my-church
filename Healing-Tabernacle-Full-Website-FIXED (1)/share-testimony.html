@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Share Your Testimony | Healing Tabernacle Ministries</title><link rel="icon" href="assets/logo/favicon.png"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/htm-platform.css"></head>
+<body><a class="skip-link" href="#main-content">Skip to main content</a><div id="site-header"></div>
+<section class="page-hero"><div class="container"><span class="eyebrow">Video Testimony</span><h1>Share Your Testimony</h1><p>Tell what God has done through a video. Every submission is reviewed before publication.</p></div></section>
+<section class="section"><div class="container" style="max-width:760px"><form id="testimonyForm" class="htm-form">
+<div class="htm-two"><div><label>Your name</label><input id="name" required maxlength="100"></div><div><label>Branch</label><input id="branch" maxlength="100" placeholder="e.g. Main Branch"></div></div>
+<div><label>Video testimony</label><input id="video" type="file" accept="video/*" required><small>Maximum 100 MB. Please submit only a video you have permission to share.</small></div>
+<div><label>Optional photo</label><input id="photo" type="file" accept="image/*"></div>
+<div><label>Date of testimony</label><input id="date" type="date"></div>
+<button class="htm-btn" id="submitBtn">Submit Video Testimony</button><p id="formMsg"></p></form></div></section>
+<div id="site-footer"></div>
+<script src="js/config.js"></script><script src="js/main.js"></script>
+<script type="module">
+import {db} from "./js/firebase.js"; import {collection,addDoc,serverTimestamp} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+import {getStorage,ref,uploadBytes,getDownloadURL} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-storage.js"; import {app} from "./js/firebase.js";
+const storage=getStorage(app), form=document.getElementById("testimonyForm"), msg=document.getElementById("formMsg"), btn=document.getElementById("submitBtn");
+form.addEventListener("submit",async e=>{e.preventDefault(); const v=document.getElementById("video").files[0],p=document.getElementById("photo").files[0]; if(!v)return; if(v.size>100*1024*1024){msg.textContent="Video is larger than 100 MB.";return} if(!v.type.startsWith("video/")){msg.textContent="Please choose a video file.";return}
+btn.disabled=true; msg.textContent="Uploading securely…"; try{const id=crypto.randomUUID(); const vr=ref(storage,`testimonySubmissions/${id}/video-${v.name.replace(/[^\w.-]/g,"_")}`); await uploadBytes(vr,v,{contentType:v.type}); const videoUrl=await getDownloadURL(vr); let photoUrl=""; if(p){const pr=ref(storage,`testimonySubmissions/${id}/photo-${p.name.replace(/[^\w.-]/g,"_")}`); await uploadBytes(pr,p,{contentType:p.type}); photoUrl=await getDownloadURL(pr)}
+await addDoc(collection(db,"videoTestimonies"),{name:document.getElementById("name").value.trim(),branch:document.getElementById("branch").value.trim(),date:document.getElementById("date").value||new Date().toISOString().slice(0,10),videoUrl,photoUrl,status:"pending",createdAt:serverTimestamp()});
+form.reset(); msg.textContent="Thank you. Your video has been submitted for administrator review."; }catch(err){console.error(err);msg.textContent="Submission failed. Please try again."; } finally{btn.disabled=false;}});
+</script><script type="module" src="js/htm-platform.js"></script></body></html>

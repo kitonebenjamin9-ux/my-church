@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Your Visit | Healing Tabernacle</title>
+<meta name="description" content="Everything you need to know for your first visit to Healing Tabernacle — service times, location, parking and what to expect.">
+<link rel="icon" href="assets/logo/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">First Time?</span>
+    <h1>Plan Your Visit</h1>
+    <p>We can't wait to welcome you. Here's everything you need to know before you come.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading center reveal">
+      <span class="eyebrow">Join Us</span>
+      <h2>Service Times</h2>
+    </div>
+    <div class="hero-service-times on-light reveal" id="service-times-list" style="justify-content:center;border:0;margin-top:10px;"></div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="options-grid">
+      <div class="option-card reveal" style="cursor:default;">
+        <div class="option-icon">1</div>
+        <h3>What To Expect</h3>
+        <p>A warm welcome from our greeting team, upbeat worship, practical Bible teaching, and prayer. Come as you are — there's no dress code.</p>
+      </div>
+      <div class="option-card reveal" style="cursor:default;">
+        <div class="option-icon">2</div>
+        <h3>Children &amp; Families</h3>
+        <p>Our Children's Ministry runs during the 10:30 AM service for ages 2–12, so the whole family can worship comfortably.</p>
+      </div>
+      <div class="option-card reveal" style="cursor:default;">
+        <div class="option-icon">3</div>
+        <h3>Parking</h3>
+        <!-- CHANGE PARKING INFO HERE -->
+        <p>Free on-site parking is available in the church car park, with an usher on hand to help direct you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container leader-section">
+    <div class="reveal">
+      <span class="eyebrow">Find Us</span>
+      <h2>Our Location</h2>
+      <p data-config="contact.address">Kasana Kavule, Kampala, Uganda</p>
+      <p style="margin-top:14px;"><strong>Phone:</strong> <span data-config="contact.phone">+234 803 000 0000</span></p>
+      <p><strong>Email:</strong> <span data-config="contact.email">info@healingtabernacle.org</span></p>
+      <div style="display:flex;gap:14px;margin-top:22px;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-primary">Contact Us</a>
+        <a href="#" id="visit-whatsapp" target="_blank" rel="noopener" class="btn btn-outline on-light">💬 Message Us On WhatsApp</a>
+      </div>
+    </div>
+    <div class="reveal">
+      <!-- CHANGE MAP LOCATION HERE — also set in js/config.js -> CONFIG.contact.mapEmbedUrl -->
+      <div class="video-frame">
+        <iframe src="https://www.google.com/maps?q=Kampala%2C%20Uganda&output=embed" loading="lazy" allowfullscreen title="Healing Tabernacle location map"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var link = document.getElementById("visit-whatsapp");
+  if (link && CONFIG.contact && CONFIG.contact.whatsapp) {
+    link.href = "https://wa.me/" + CONFIG.contact.whatsapp + "?text=" + encodeURIComponent("Hi, I'm planning to visit Healing Tabernacle and had a question.");
+  }
+});
+</script>
+<script type="module" src="js/htm-platform.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Holy Bible | Healing Tabernacle Ministries</title><meta name="description" content="Read the public-domain King James Version Bible from Genesis through Revelation.">
+<link rel="icon" href="assets/logo/favicon.png"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/htm-platform.css"></head><body><a class="skip-link" href="#main-content">Skip to main content</a>
+<div id="site-header"></div><section class="page-hero"><div class="container"><span class="eyebrow">The Word of God</span><h1>Holy Bible</h1><p>Genesis → Revelation · Public-domain KJV</p></div></section>
+<section class="section"><div class="container">
+<div class="htm-search"><input id="bibleSearch" placeholder="Search a word or reference, e.g. John 3:16"><button id="searchBtn" class="htm-btn">Search</button></div>
+<div class="htm-two"><select id="book"></select><select id="chapter"></select></div><div class="bible-appearance" id="bibleAppearance" style="margin:18px 0;padding:16px;border:1px solid #ddd;border-radius:14px;background:#fff"><strong>Reading appearance</strong><div class="htm-two" style="margin-top:10px"><label>Text size <select id="fontSize"><option value="1">Normal</option><option value="1.12">Large</option><option value="1.25">Extra large</option></select></label><label>Font <select id="fontFamily"><option value="serif">Classic Serif</option><option value="sans-serif">Clean Sans</option><option value="Georgia">Georgia</option></select></label><label>Line spacing <select id="lineHeight"><option value="1.7">Comfortable</option><option value="2">Wide</option><option value="2.3">Extra wide</option></select></label><label>Reading theme <select id="readerTheme"><option value="light">Light</option><option value="sepia">Sepia</option><option value="dark">Dark</option></select></label></div></div>
+<div class="htm-actions" style="margin:14px 0"><select id="version" style="padding:10px;border-radius:10px"><option value="kjv">KJV — King James Version</option><option value="akjv">AKJV — American KJV</option></select><button id="prev" class="htm-btn ghost">← Previous</button><button id="next" class="htm-btn ghost">Next →</button></div>
+<div id="bibleStatus"></div><article id="reader" class="card" style="padding:24px;line-height:1.8"></article><div id="savedVersesPanel" class="card" style="margin-top:18px;padding:18px"><strong>Saved verses</strong><div id="savedVersesList" class="form-note" style="margin-top:8px">No saved verses yet.</div></div>
+<div id="searchResults" style="margin-top:20px"></div>
+</div></section><div id="site-footer"></div>
+<script src="js/config.js"></script><script src="js/main.js"></script>
+<script type="module">
+const books=["Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel","1 Kings","2 Kings","1 Chronicles","2 Chronicles","Ezra","Nehemiah","Esther","Job","Psalms","Proverbs","Ecclesiastes","Song of Solomon","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel","Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi","Matthew","Mark","Luke","John","Acts","Romans","1 Corinthians","2 Corinthians","Galatians","Ephesians","Philippians","Colossians","1 Thessalonians","2 Thessalonians","1 Timothy","2 Timothy","Titus","Philemon","Hebrews","James","1 Peter","2 Peter","1 John","2 John","3 John","Jude","Revelation"];
+const chapterCounts=[50,40,27,36,34,24,21,4,31,24,22,25,29,36,10,13,10,42,150,31,12,8,66,52,5,48,12,14,3,9,1,4,7,3,3,3,2,14,4,28,16,24,21,28,16,16,13,6,6,4,4,5,3,6,4,3,1,13,5,5,3,5,1,1,1,22];
+const bookSlugs=books.map(x=>x.toLowerCase().replace(/ /g,'').replace(/^(1|2|3)/,'$1').replace('songofsolomon','songofsolomon'));
+const bookSel=document.getElementById("book"),chSel=document.getElementById("chapter"),reader=document.getElementById("reader"),status=document.getElementById("bibleStatus"),search=document.getElementById("bibleSearch"),results=document.getElementById("searchResults");
+books.forEach((b,i)=>{const o=document.createElement("option");o.value=i+1;o.textContent=b;bookSel.appendChild(o)});
+function fillCh(){chSel.innerHTML="";for(let i=1;i<=chapterCounts[bookSel.value-1];i++){const o=document.createElement("option");o.value=i;o.textContent=`Chapter ${i}`;chSel.appendChild(o)}}
+function key(b,c){return `htm-bible-kjv-${b}-${c}`}
+function escapeHtml(s){const d=document.createElement("div");d.textContent=s;return d.innerHTML}
+function showChapter(data,b,c,cached=false){
+  const verses=(data.verses||[]).map(v=>[String(v.verse),v.text||""]);
+  reader.innerHTML=`<h2>${books[b-1]} ${c}</h2>`+verses.map(([n,t])=>`<p id="verse-${b}-${c}-${n}"><button class="verse-save" data-ref="${escapeHtml(`${books[b-1]} ${c}:${n}`)}" data-text="${escapeHtml(t)}" title="Save verse" aria-label="Save ${escapeHtml(`${books[b-1]} ${c}:${n}`)}">☆</button> <strong>${n}</strong> ${escapeHtml(t)}</p>`).join("");
+  status.textContent=`${books[b-1]} ${c} · KJV · ${cached?'Cached on this device':'Loaded successfully'}`;
+  reader.dataset.chapter=JSON.stringify(verses); bindVerseButtons(); renderSavedVerses();
+}
+async function fetchChapter(b,c){
+  const slug=bookSlugs[b-1];
+  const primary=`https://cdn.jsdelivr.net/gh/jsubroto/bible-api/versions/kjv/books/${slug}/chapters/${c}.json`;
+  try{const r=await fetch(primary,{cache:'no-store'});if(!r.ok)throw Error('primary');return await r.json()}catch(e){
+    const ref=encodeURIComponent(`${books[b-1]} ${c}`);
+    const r=await fetch(`https://bible-api.com/${ref}?translation=kjv`,{cache:'no-store'});if(!r.ok)throw Error('fallback');
+    const d=await r.json();return {version:'KJV',book:books[b-1],chapter:String(c),verses:(d.verses||[]).map(v=>({verse:v.verse,text:v.text}))};
+  }
+}
+function savedVerses(){return JSON.parse(localStorage.getItem("htm-saved-verses")||"[]")}
+function saveVerse(ref,text){let a=savedVerses();if(!a.some(x=>x.ref===ref))a.unshift({ref,text,savedAt:Date.now()});else a=a.filter(x=>x.ref!==ref);localStorage.setItem("htm-saved-verses",JSON.stringify(a.slice(0,200)));renderSavedVerses();document.querySelectorAll('.verse-save').forEach(b=>{b.textContent=savedVerses().some(x=>x.ref===b.dataset.ref)?'★':'☆'});}
+function renderSavedVerses(){const box=document.getElementById('savedVersesList');if(!box)return;const a=savedVerses();box.innerHTML=a.length?a.slice(0,20).map(x=>`<div style="padding:8px 0;border-bottom:1px solid #e5e7eb"><strong>${escapeHtml(x.ref)}</strong><br>${escapeHtml(x.text)}</div>`).join(''):'No saved verses yet.';}
+function bindVerseButtons(){document.querySelectorAll('.verse-save').forEach(b=>{b.textContent=savedVerses().some(x=>x.ref===b.dataset.ref)?'★':'☆';b.onclick=()=>saveVerse(b.dataset.ref,b.dataset.text)})}
+async function loadChapter(){const b=+bookSel.value,c=+chSel.value;status.textContent="Loading Scripture…";reader.innerHTML='<div class="htm-empty">Loading the chapter…</div>';
+  try{const saved=JSON.parse(localStorage.getItem(key(b,c))||'null');if(saved){showChapter(saved,b,c,true);return}const data=await fetchChapter(b,c);localStorage.setItem(key(b,c),JSON.stringify(data));showChapter(data,b,c,false)}
+  catch(e){reader.innerHTML='<div class="htm-empty">The Bible service could not be reached. Check your internet connection and try again. Previously opened chapters remain available offline.</div>';status.textContent='Unable to load Scripture';console.error(e)}
+}
+bookSel.onchange=()=>{fillCh();loadChapter()};chSel.onchange=loadChapter;
+document.getElementById("prev").onclick=()=>{if(+chSel.value>1)chSel.value=+chSel.value-1;else if(+bookSel.value>1){bookSel.value=+bookSel.value-1;fillCh();chSel.value=chapterCounts[+bookSel.value-2]}loadChapter()};
+document.getElementById("next").onclick=()=>{if(+chSel.value<chapterCounts[+bookSel.value-1])chSel.value=+chSel.value+1;else if(+bookSel.value<66){bookSel.value=+bookSel.value+1;fillCh()}loadChapter()};
+document.getElementById("version").innerHTML='<option value="kjv">KJV — King James Version</option>';
+document.getElementById("searchBtn").onclick=async()=>{const q=search.value.trim();if(!q)return;results.innerHTML='<div class="htm-empty">Searching…</div>';
+  const ref=q.match(/^(.*?)\s+(\d+)(?::(\d+))?$/);
+  if(ref){const idx=books.findIndex(x=>x.toLowerCase()===ref[1].toLowerCase());if(idx>=0){bookSel.value=idx+1;fillCh();chSel.value=ref[2];await loadChapter();if(ref[3]){const n=ref[3];const ps=[...reader.querySelectorAll('p')];const hit=ps.find(p=>p.querySelector('strong')?.textContent===n);ps.forEach(p=>p.style.outline='');if(hit){hit.style.outline='3px solid #d4af37';hit.scrollIntoView({behavior:'smooth',block:'center'})}}return}}
+  const ql=q.toLowerCase();const out=[];for(let b=1;b<=66;b++){for(let c=1;c<=chapterCounts[b-1];c++){const saved=JSON.parse(localStorage.getItem(key(b,c))||'null');if(!saved)continue;for(const v of (saved.verses||[])){if((v.text||'').toLowerCase().includes(ql))out.push({ref:`${books[b-1]} ${c}:${v.verse}`,text:v.text});if(out.length>=30)break}if(out.length>=30)break}if(out.length>=30)break}
+  results.innerHTML=out.length?out.map(x=>`<div class="card" style="padding:14px;margin:10px 0"><strong>${escapeHtml(x.ref)}</strong><p>${escapeHtml(x.text)}</p></div>`).join(''):'<div class="htm-empty">For a word search, open the chapters you want to search first. Reference searches such as John 3:16 work immediately.</div>';
+};
+function applyBibleAppearance(){const r=document.getElementById("reader"),s=document.getElementById("fontSize"),f=document.getElementById("fontFamily"),l=document.getElementById("lineHeight"),t=document.getElementById("readerTheme");const p=JSON.parse(localStorage.getItem("htm-bible-appearance")||"{}");s.value=p.size||"1";f.value=p.font||"serif";l.value=p.line||"1.7";t.value=p.theme||"light";const set=()=>{r.style.fontSize=`${s.value}rem`;r.style.fontFamily=f.value;r.style.lineHeight=l.value;r.style.padding="clamp(18px,4vw,36px)";r.style.background=t.value==="dark"?"#111827":t.value==="sepia"?"#f4ecd8":"#fff";r.style.color=t.value==="dark"?"#f3f4f6":"#172033";localStorage.setItem("htm-bible-appearance",JSON.stringify({size:s.value,font:f.value,line:l.value,theme:t.value}))};[s,f,l,t].forEach(x=>x.addEventListener("change",set));set()}
+applyBibleAppearance();fillCh();const params=new URLSearchParams(location.search);const ref=params.get("ref");if(ref){search.value=ref;document.getElementById("searchBtn").click()}else loadChapter();
+</script><script type="module" src="js/htm-platform.js"></script></body></html>
