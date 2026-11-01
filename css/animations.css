@@ -1,0 +1,137 @@
+/* =========================================================================
+   animations.css — ADDITIVE motion/interaction styles for NEW pages
+   (give.html, giving-*.html, pastors.html, testimonies.html, faq.html,
+   youth/children/men/women/worship/outreach.html, 404.html)
+   This file does NOT alter anything in style.css — it is only linked on
+   the newly-added pages, after style.css.
+   ========================================================================= */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.6s ease both; }
+.fade-up-delay-1 { animation: fadeUp 0.6s ease 0.1s both; }
+.fade-up-delay-2 { animation: fadeUp 0.6s ease 0.2s both; }
+.fade-up-delay-3 { animation: fadeUp 0.6s ease 0.3s both; }
+
+/* ---- Clickable "option" cards that lead to a more-info page ---------- */
+.option-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 28px 26px;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.option-card::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  height: 4px; width: 0%;
+  background: var(--color-accent);
+  transition: width 0.35s ease;
+}
+.option-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent-light);
+}
+.option-card:hover::after { width: 100%; }
+.option-card .option-icon {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--color-bg-alt);
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+}
+.option-card .option-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-weight: 700;
+  color: var(--color-accent-dark);
+  font-size: 0.9rem;
+}
+.option-card .option-more::after { content: "\2192"; transition: transform var(--transition); }
+.option-card:hover .option-more::after { transform: translateX(4px); }
+
+/* ---- Accordion (FAQ, testimonies "read more") ------------------------ */
+.accordion-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.accordion-trigger {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+.accordion-trigger .plus {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--color-bg-alt);
+  color: var(--color-accent-dark);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  transition: transform var(--transition), background var(--transition);
+}
+.accordion-item.open .accordion-trigger .plus { transform: rotate(45deg); background: var(--color-accent-light); }
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.accordion-panel-inner { padding: 0 22px 20px; color: var(--color-text-light); }
+
+/* ---- Copy-to-clipboard button (giving detail pages) ------------------ */
+.copy-btn {
+  background: var(--color-accent);
+  color: var(--color-button-text);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+.copy-btn:hover { background: var(--color-accent-dark); color: #fff; }
+.copy-btn.copied { background: var(--color-success); color: #fff; }
+
+/* ---- Payment detail panel --------------------------------------------- */
+.pay-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--color-cream);
+  border-radius: var(--radius-sm);
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.pay-row .pay-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-light); font-weight: 700; }
+.pay-row .pay-value { font-family: var(--font-display); font-size: 1.15rem; color: var(--color-primary); font-weight: 700; }

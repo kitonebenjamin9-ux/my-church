@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login - Healing Tabernacle</title>
+<link rel="icon" href="assets/logo/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.admin-login-hero{background:linear-gradient(135deg,#4B0082,#260041);color:#fff;padding:64px 20px;text-align:center}
+.admin-login-wrap{max-width:480px;margin:0 auto;padding:48px 20px 70px}
+.admin-login-card{background:#fff;border-radius:18px;padding:32px;box-shadow:0 10px 35px rgba(0,0,0,.10)}
+.admin-login-card h2{margin-top:0;color:#4B0082}
+.admin-login-note{font-size:.95rem;color:#666;margin-top:10px}
+.admin-login-message{min-height:24px;margin:16px 0;font-weight:600;text-align:center}
+.admin-login-message.error{color:#dc3545}.admin-login-message.success{color:#198754}
+.admin-login-back{text-align:center;margin-top:22px}
+.admin-login-back a{font-weight:700}
+</style>
+</head>
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
+<div id="site-header"></div>
+
+<section class="admin-login-hero">
+  <div class="container">
+    <span class="eyebrow">Staff Area</span>
+    <h1>Admin Login</h1>
+    <p>Sign in with your Firebase administrator account.</p>
+  </div>
+</section>
+
+<main class="admin-login-wrap">
+  <div class="admin-login-card">
+    <h2>Welcome, Administrator</h2>
+    <p class="admin-login-note">Only accounts with <strong>role = admin</strong> in <strong>users/{your Firebase UID}</strong> can enter the admin dashboard.</p>
+
+    <form id="adminLoginForm" novalidate>
+      <div class="form-group">
+        <label for="adminEmail">Email Address</label>
+        <input type="email" id="adminEmail" placeholder="admin@example.com" required autocomplete="username">
+      </div>
+      <div class="form-group">
+        <label for="adminPassword">Password</label>
+        <input type="password" id="adminPassword" placeholder="Password" required autocomplete="current-password">
+      </div>
+      <button id="adminLoginButton" type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Sign In as Admin</button>
+    </form>
+
+    <div id="adminLoginMessage" class="admin-login-message" role="alert"></div>
+
+    <p class="admin-login-back"><a href="login.html">← Back to Member Login</a></p>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script type="module" src="js/firebase.js"></script>
+<script type="module" src="js/admin-login.js?v=20260911-0935"></script>
+<script type="module" src="js/htm-platform.js"></script>
+</body>
+</html>

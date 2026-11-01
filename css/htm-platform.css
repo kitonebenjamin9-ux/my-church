@@ -1,0 +1,4 @@
+/* HTM platform utility styles */
+:root{--htm-primary:#4b0082;--htm-secondary:#d4af37;--htm-accent:#173f8a}
+body{overflow-x:hidden}
+[data-theme="dark"]{color-scheme:dark}

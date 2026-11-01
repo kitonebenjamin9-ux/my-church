@@ -1,0 +1,51 @@
+# Healing Tabernacle Branch Connections
+
+All 46 branch websites are linked from the main `branches.html` page. Every branch links back to the main `index.html` through its floating Main Website button and header/footer controls. The main site navigation Branches dropdown lists all 46 branches.
+
+Branches:
+- Adjumani: `branches/adjumani/index.html`
+- Apac: `branches/apac/index.html`
+- Arua: `branches/arua/index.html`
+- Budaka: `branches/budaka/index.html`
+- Bushenyi: `branches/bushenyi/index.html`
+- Busia: `branches/busia/index.html`
+- Dokolo: `branches/dokolo/index.html`
+- Entebbe: `branches/entebbe/index.html`
+- Fort Portal: `branches/fort-portal/index.html`
+- Gulu: `branches/gulu/index.html`
+- Hoima: `branches/hoima/index.html`
+- Iganga: `branches/iganga/index.html`
+- Jinja: `branches/jinja/index.html`
+- Kabale: `branches/kabale/index.html`
+- Kampala: `branches/kampala/index.html`
+- Kamuli: `branches/kamuli/index.html`
+- Kapchorwa: `branches/kapchorwa/index.html`
+- Kasese: `branches/kasese/index.html`
+- Kayunga: `branches/kayunga/index.html`
+- Kiboga: `branches/kiboga/index.html`
+- Kira: `branches/kira/index.html`
+- Kitgum: `branches/kitgum/index.html`
+- Kotido: `branches/kotido/index.html`
+- Kumi: `branches/kumi/index.html`
+- Kyenjojo: `branches/kyenjojo/index.html`
+- Lira: `branches/lira/index.html`
+- Luwero: `branches/luwero/index.html`
+- Lyantonde: `branches/lyantonde/index.html`
+- Masaka: `branches/masaka/index.html`
+- Masindi: `branches/masindi/index.html`
+- Mbale: `branches/mbale/index.html`
+- Mbarara: `branches/mbarara/index.html`
+- Mityana: `branches/mityana/index.html`
+- Moroto: `branches/moroto/index.html`
+- Mubende: `branches/mubende/index.html`
+- Mukono: `branches/mukono/index.html`
+- Nansana: `branches/nansana/index.html`
+- Nebbi: `branches/nebbi/index.html`
+- Ntungamo: `branches/ntungamo/index.html`
+- Pallisa: `branches/pallisa/index.html`
+- Rakai: `branches/rakai/index.html`
+- Rukungiri: `branches/rukungiri/index.html`
+- Soroti: `branches/soroti/index.html`
+- Tororo: `branches/tororo/index.html`
+- Wakiso: `branches/wakiso/index.html`
+- Yumbe: `branches/yumbe/index.html`

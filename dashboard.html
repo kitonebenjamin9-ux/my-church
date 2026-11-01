@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Dashboard - Healing Tabernacle Church</title>
+<link rel="icon" href="assets/logo/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Additive, dashboard-only styles — does not touch existing site CSS */
+  .dash-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; align-items: start; }
+  @media (max-width: 860px) { .dash-grid { grid-template-columns: 1fr; } }
+  .dash-quicklinks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 10px; }
+  .dash-quicklinks a {
+    display: flex; flex-direction: column; gap: 4px; padding: 16px; border-radius: var(--radius-sm);
+    background: var(--color-bg-alt); text-align: center; font-weight: 700; color: var(--color-primary);
+    border: 1px solid var(--color-border);
+  }
+  .dash-quicklinks a:hover { border-color: var(--color-accent); }
+  .dash-stat-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0 4px; }
+  .dash-stat { flex: 1; min-width: 120px; background: var(--color-bg-alt); border-radius: var(--radius-sm); padding: 16px; text-align: center; }
+  .dash-stat .num { font-family: var(--font-heading, serif); font-size: 1.7rem; font-weight: 700; color: var(--color-primary); display: block; }
+  .dash-stat .label { font-size: 0.78rem; color: var(--color-text-light); text-transform: uppercase; letter-spacing: 0.04em; }
+  .dash-reg-item { border-left: 4px solid var(--color-accent); background: var(--color-bg-alt); border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; }
+  .dash-reg-item h4 { margin: 0 0 4px; }
+  .dash-reg-item small { color: var(--color-text-light); }
+</style>
+</head>
+
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Member Area</span>
+    <h1 id="welcomeHeading">My Dashboard</h1>
+    <p id="userInfo">Loading your account...</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div id="dashMessage" class="form-alert"></div>
+
+    <div class="dash-grid">
+
+      <div>
+        <div class="card">
+          <div class="card-body">
+            <h2>My Prayer Requests</h2>
+            <div class="dash-stat-row">
+              <div class="dash-stat"><span class="num" id="statPending">0</span><span class="label">Pending</span></div>
+              <div class="dash-stat"><span class="num" id="statHandled">0</span><span class="label">Handled</span></div>
+              <div class="dash-stat"><span class="num" id="statTotal">0</span><span class="label">Total Sent</span></div>
+            </div>
+            <p class="form-note"><a href="prayer.html" class="card-link">Submit or view full prayer requests →</a></p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:24px;">
+          <div class="card-body">
+            <h2>My Event Registrations</h2>
+            <div id="myRegistrations"><p class="form-note">Loading your registrations...</p></div>
+            <p class="form-note"><a href="events.html" class="card-link">Browse upcoming events →</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <div class="card-body">
+            <h2>Quick Links</h2>
+            <div class="dash-quicklinks">
+              <a href="prayer.html">🙏<br>Prayer Request</a>
+              <a href="events.html">📅<br>Events</a>
+              <a href="give.html">💝<br>Give</a>
+              <a href="testimonies.html">✨<br>Testimonies</a>
+              <a href="sermons.html">🎙️<br>Sermons</a>
+              <a href="ministries.html">🤝<br>Ministries</a>
+            </div>
+            <p id="adminLinkWrap" style="display:none;margin-top:16px;">
+              <a href="admin-login.html" class="btn btn-outline on-light btn-sm" style="width:100%;justify-content:center;">Admin Login</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:24px;">
+          <div class="card-body">
+            <h2>My Bible</h2>
+            <p class="form-note">Saved Bible preferences and chapters are kept on this device for quick access.</p>
+            <div class="dash-reg-item"><strong>Saved verses</strong><p id="savedVerseCount">0 saved on this device</p></div>
+            <a href="bible.html" class="btn btn-outline on-light btn-sm" style="width:100%;justify-content:center">Open Holy Bible</a>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:24px;">
+          <div class="card-body">
+            <h2>Account</h2>
+            <p id="accountDetails" class="form-note"></p>
+            <a href="#" id="logout" class="btn btn-outline on-light btn-sm" style="margin-top:10px;width:100%;justify-content:center;">Logout</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script type="module" src="js/firebase.js"></script>
+<script type="module" src="js/dashboard.js"></script>
+
+<script type="module" src="js/htm-platform.js"></script>
+</body>
+</html>
